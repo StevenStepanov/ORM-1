@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=" {{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Raamatukogu</title>
 </head>
@@ -11,7 +11,7 @@
         <thead class="font-bold">
             <tr>
                 <td class="px-4 py-2">Pealkiri</td>
-                <td class="px-4 py-2">Autor</td>
+                <td class="px-4 py-2">Keel</td>
                 <td class="px-4 py-2">Aasta</td>
                 <td class="px-4 py-2">Lehekülg</td>
                 <td class="px-4 py-2">Hind</td>
@@ -23,7 +23,7 @@
             @foreach($books as $book)
             <tr>
                 <td class="border rounded px-4 py-2">{{ $book->title }}</td>
-                <td class="border rounded px-4 py-2"></td>
+                <td class="border rounded px-4 py-2">{{ $book->language }}</td>
                 <td class="border rounded px-4 py-2">{{ $book->release_date }}</td>
                 <td class="border rounded px-4 py-2">{{ $book->pages }}</td>
                 <td class="border rounded px-4 py-2">{{ $book->price }}</td>
